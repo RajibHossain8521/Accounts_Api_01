@@ -1,7 +1,7 @@
 from django.db import models
 
 from django.contrib.auth.models import (
-    AbstractBaseUser, BaseUserManager, PermissionMixin
+    AbstractBaseUser, BaseUserManager, PermissionsMixin
 )
 
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -31,7 +31,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class UserAccounts(AbstractBaseUser, PermissionMixin):
+class UserAccounts(AbstractBaseUser, PermissionsMixin):
     username    = models.CharField(max_length=25, unique=True, db_index=True)
     email       = models.EmailField(max_length=255, unique=True, db_index=True)
     is_verified = models.BooleanField(default=False)
