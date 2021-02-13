@@ -1,9 +1,9 @@
 from django.urls import path
 
 from .views import (
-    UserRegistrationView,
-    VerifyEmailView,
-    ResendVerifyEmailView,
+    user_registration_view,
+    verify_email_view,
+    resend_verify_email_view,
     LoginView,
     LogoutView,
     ResetPasswordEmailView,
@@ -17,5 +17,7 @@ from rest_framework_simplejwt.views import (
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('user-registration/', user_registration_view, name='user-registration'),
+    path('email-verify/', verify_email_view, name='email-verify'),
+    path('resend-verify-email/', resend_verify_email_view, name='resend-verify-email'),
 ]
